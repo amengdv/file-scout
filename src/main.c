@@ -8,10 +8,13 @@ int main(int argc, char **argv) {
     }
 
     char *dir_name = argv[1];
+    remove_trailing_slash(dir_name);
 
     if (!is_dir(dir_name)) {
         printf("%s is not a directory\n", dir_name);
         return 1;
     }
+
+    traverse_directory_r(dir_name);
     return 0;
 }
