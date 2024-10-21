@@ -1,0 +1,66 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-Imunit",
+      "-o",
+      "bin/test",
+      "src/hello.c"
+    ],
+    "directory": "/home/aminkafri/workspace/c/file_scout",
+    "file": "/home/aminkafri/workspace/c/file_scout/src/hello.c",
+    "output": "/home/aminkafri/workspace/c/file_scout/bin/test"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-Imunit",
+      "-o",
+      "bin/test",
+      "src/statcheck.c"
+    ],
+    "directory": "/home/aminkafri/workspace/c/file_scout",
+    "file": "/home/aminkafri/workspace/c/file_scout/src/statcheck.c",
+    "output": "/home/aminkafri/workspace/c/file_scout/bin/test"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-Imunit",
+      "-o",
+      "bin/test",
+      "tests/greeting_test.c"
+    ],
+    "directory": "/home/aminkafri/workspace/c/file_scout",
+    "file": "/home/aminkafri/workspace/c/file_scout/tests/greeting_test.c",
+    "output": "/home/aminkafri/workspace/c/file_scout/bin/test"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-Iinclude",
+      "-Imunit",
+      "-o",
+      "bin/test",
+      "munit/munit.c"
+    ],
+    "directory": "/home/aminkafri/workspace/c/file_scout",
+    "file": "/home/aminkafri/workspace/c/file_scout/munit/munit.c",
+    "output": "/home/aminkafri/workspace/c/file_scout/bin/test"
+  }
+]

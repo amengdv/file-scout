@@ -1,0 +1,7 @@
+#IGNORE CACHE DIR
+.cache
+
+build/*
+bin/*
+
+guide.md

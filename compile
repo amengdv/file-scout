@@ -1,0 +1,5 @@
+gcc -c -Wall -Wextra -Iinclude src/main.c -o build/main.o
+gcc -c -Wall -Wextra -Iinclude src/hello.c -o build/hello.o
+gcc -c -Wall -Wextra -Iinclude src/fshandler.c -o build/fshandler.o
+
+gcc build/*.o -o bin/file_scout
