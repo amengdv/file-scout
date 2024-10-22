@@ -51,8 +51,11 @@ void traverse_directory_r(char *dir_name) {
         char name[PATH_MAX];
         snprintf(name, sizeof(name), "%s/%s", dir_name, dir_read->d_name);
 
-        printf("%s\n", name);
-
+        if (is_dir(name)) {
+            traverse_directory_r(name);
+        } else {
+            printf("%s\n", name);
+        }
     }
     closedir(curr_dir);
 }
