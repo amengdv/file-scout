@@ -1,3 +1,4 @@
+#include "entry.h"
 #include "fshandler.h"
 #include <stdio.h>
 
@@ -15,6 +16,16 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    traverse_directory_r(dir_name);
+    entries_t *entries = new_entries(5);
+    entries->root_entry = dir_name;
+    traverse_directory_r(dir_name, entries, 0);
+
+    sort_entry(entries);
+    for (size_t i = 0; i < entries->len; i++) {
+        printf("%s\n", entries->collections[i]);
+    }
+
+    free_entries(entries);
+
     return 0;
 }

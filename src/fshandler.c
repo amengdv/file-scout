@@ -7,6 +7,7 @@
 #include <limits.h>
 
 #include "fshandler.h"
+#include "entry.h"
 
 int is_dir(char *dir_name) {
     struct stat statbuf;
@@ -28,7 +29,7 @@ int is_file(char *file_name) {
     return S_ISREG(statbuf.st_mode);
 }
 
-void traverse_directory_r(char *dir_name) {
+void traverse_directory_r(char *dir_name, entries_t *entries, int hidden_visible) {
     if (!is_dir(dir_name)) {
         return;
     }
@@ -48,14 +49,18 @@ void traverse_directory_r(char *dir_name) {
             continue;
         }
 
+        if (dir_read->d_name[0] == '.' && hidden_visible == 0) {
+            continue;
+        }
+
         char name[PATH_MAX];
         snprintf(name, sizeof(name), "%s/%s", dir_name, dir_read->d_name);
 
+        insert_entry(entries, name);
+
         if (is_dir(name)) {
-            traverse_directory_r(name);
-        } else {
-            printf("%s\n", name);
-        }
+            traverse_directory_r(name, entries, hidden_visible);
+        }     
     }
     closedir(curr_dir);
 }

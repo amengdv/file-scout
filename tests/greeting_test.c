@@ -1,5 +1,6 @@
 #include "munit.h"
 #include "hello.h"
+#include "test_utils.h"
 
 static MunitResult test_hello(const MunitParameter params[], void *user_data_or_fixture) {
     (void) params;
@@ -18,6 +19,30 @@ static MunitTest test_suite_tests[] = {
         test_hello,
         NULL,
         NULL,
+        MUNIT_TEST_OPTION_NONE,
+        NULL
+    },
+    {
+        "/tests/insert_entries",
+        test_insertentries,
+        test_insertentries_setup,
+        test_insertentries_teardown,
+        MUNIT_TEST_OPTION_NONE,
+        NULL
+    },
+    {
+        "/tests/insert_entries_over_capacity",
+        test_entries_over_capacity,
+        test_insertentries_setup,
+        test_insertentries_teardown,
+        MUNIT_TEST_OPTION_NONE,
+        NULL
+    },
+    {
+        "/tests/sort_entries",
+        test_entries_sort,
+        test_insertentries_setup,
+        test_insertentries_teardown,
         MUNIT_TEST_OPTION_NONE,
         NULL
     },
