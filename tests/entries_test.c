@@ -1,6 +1,7 @@
 #include "entry.h"
 #include "munit.h"
 #include "test_utils.h"
+#include <linux/limits.h>
 
 MunitResult test_insertentries(const MunitParameter *params, void *entries) {
     (void) params;
@@ -50,6 +51,24 @@ MunitResult test_entries_sort(const MunitParameter params[], void *entries) {
     munit_assert_string_equal(setup_entries->collections[1], "src/fshandler.c");
     munit_assert_string_equal(setup_entries->collections[2], "src/hello.c");
     munit_assert_string_equal(setup_entries->collections[3], "src/main.c");
+    return MUNIT_OK;
+}
+
+
+MunitResult test_slice_dir_from_entry(const MunitParameter params[], void *entries) {
+    (void) params;
+    (void) entries;
+
+    char res[PATH_MAX];
+    slice_dir_from_entry("src/main.c", "src", res);
+    munit_assert_string_equal(res, "main.c");
+
+    slice_dir_from_entry("./bin/test.c", ".", res);
+    munit_assert_string_equal(res, "bin/test.c");
+
+    slice_dir_from_entry("bin/test.c", ".", res);
+    munit_assert_string_equal(res, "bin/test.c");
+
     return MUNIT_OK;
 }
 

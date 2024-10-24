@@ -34,7 +34,7 @@ void traverse_directory_r(char *dir_name, entries_t *entries, int hidden_visible
         return;
     }
 
-    printf("Current Dir: %s\n", dir_name);
+    // printf("Current Dir: %s\n", dir_name);
 
     DIR *curr_dir = opendir(dir_name);
     if (curr_dir == NULL) {

@@ -75,3 +75,30 @@ void sort_entry(entries_t *entries) {
         }
     }
 }
+
+/*
+ *
+    ├: U+251C
+
+    │: U+2502
+    ─: U+2500
+    └: U+2514
+ *
+*/
+void pretty_entry_display(entries_t *entries) {
+    (void) entries;
+}
+
+void slice_dir_from_entry(char *entry, char *curr_dir, char *res) {
+    int dir_len = strlen(curr_dir);
+    
+    // Check if entry starts with curr_dir
+    if (strncmp(entry, curr_dir, dir_len) == 0 && entry[dir_len] == '/') {
+        // Copy the part after curr_dir and the following '/'
+        strcpy(res, entry + dir_len + 1);
+    } else {
+        // Handle cases where curr_dir is not a prefix
+        strcpy(res, entry);
+    }
+}
+

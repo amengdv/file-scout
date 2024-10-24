@@ -46,6 +46,14 @@ static MunitTest test_suite_tests[] = {
         MUNIT_TEST_OPTION_NONE,
         NULL
     },
+    {
+        "/tests/slice_dir",
+        test_slice_dir_from_entry,
+        NULL,
+        NULL,
+        MUNIT_TEST_OPTION_NONE,
+        NULL
+    },
     { NULL, NULL, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL }
 };
 
